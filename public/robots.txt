@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /api/
+Disallow: /admin/
+Allow: /
+
+Sitemap: https://abdullah-faheem.vercel.app/sitemap.xml
+Host: https://abdullah-faheem.vercel.app
