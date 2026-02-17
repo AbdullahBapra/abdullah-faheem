@@ -34,3 +34,25 @@ h4 {
     stroke-dashoffset: 12433.8193359375;
   }
 }
+
+
+.skillanimate {
+  display: flex;
+  gap: 3rem;
+  animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.skillanimate:hover {
+  cursor: pointer;
+  animation-play-state: paused;
+}
+

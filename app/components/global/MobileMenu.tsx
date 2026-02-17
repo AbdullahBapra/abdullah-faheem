@@ -30,11 +30,7 @@ export default function MobileMenu() {
       href: "/blog",
       icon: HiBookmarkAlt,
     },
-    {
-      title: "Photos",
-      href: "/photos",
-      icon: HiCamera,
-    },
+   
   ];
 
   const onToggleNav = () => {
@@ -64,7 +60,7 @@ export default function MobileMenu() {
       >
         <div className="flex items-center justify-between mt-6 px-8">
           <Link href="/" onClick={onToggleNav}>
-            <Image src={Logo} width={35} height={35} alt="logo" />
+            <Image src={Logo} width={135} height={135} alt="logo" className="dark:invert-0 invert " />
           </Link>
 
           <button
@@ -97,3 +93,4 @@ export default function MobileMenu() {
     </>
   );
 }
+ 

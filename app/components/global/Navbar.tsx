@@ -20,15 +20,21 @@ export default function Navbar() {
       href: "/blog",
     },
   ];
-
+  
   return (
     <UnmountStudio>
       <header className="text-sm py-6 md:px-16 px-6 border-b dark:border-zinc-800 border-zinc-200 z-30 md:mb-28 mb-10">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link href="/">
-            <Image src={Logo} width={135} height={135} alt="logo" />
-          </Link>
+            <Image
+              src={Logo}
+              width={135}
+              height={135}
+              alt="logo"
+              className="dark:invert-0 invert"
+            />
 
+          </Link>
           <nav className="md:block hidden">
             <ul className="flex items-center gap-x-8">
               {data.map((link, id) => (
