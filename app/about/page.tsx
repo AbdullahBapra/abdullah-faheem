@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "Learn more about my skills, experience and technical background",
   openGraph: {
     title: "About | Abdullah Faheem",
-    url: "https://victoreke.com/about",
+    url: "https://abdullah-faheem.vercel.app/about",
     description:
       "Learn more about my skills, experience and technical background",
     images:

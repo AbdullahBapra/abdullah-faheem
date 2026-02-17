@@ -12,7 +12,6 @@ import SharePost from "../../components/shared/SharePost";
 import FeaturedPosts from "../../components/pages/FeaturedPosts";
 import { Slide } from "../../animation/Slide";
 import { urlFor } from "@/lib/sanity.image";
-import Buymeacoffee from "@/app/components/shared/Buymeacoffee";
 import { sanityFetch } from "@/lib/sanity.client";
 import { readTime } from "@/app/utils/readTime";
 import PageHeading from "@/app/components/shared/PageHeading";
@@ -41,23 +40,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${post.title}`,
-    metadataBase: new URL(`https://victoreke.com/blog/${post.slug}`),
+    metadataBase: new URL(`https://abdullah-faheem.vercel.app/blog/${post.slug}`),
     description: post.description,
     publisher: post.author.name,
     keywords: post.tags,
     alternates: {
       canonical:
-        post.canonicalLink || `https://victoreke.com/blog/${post.slug}`,
+        post.canonicalLink || `https://abdullah-faheem.vercel.app/blog/${post.slug}`,
     },
     openGraph: {
       images:
         urlFor(post.coverImage?.image).width(1200).height(630).url() ||
         fallbackImage,
-      url: `https://victoreke.com/blog/${post.slug}`,
+      url: `https://abdullah-faheem.vercel.app/blog/${post.slug}`,
       title: post.title,
       description: post.description,
       type: "article",
-      siteName: "victoreke.com",
+      siteName: "https://abdullah-faheem.vercel.app/",
       authors: post.author.name,
       tags: post.tags,
       publishedTime: post._createdAt,
@@ -209,12 +208,6 @@ export default async function Post({ params }: Props) {
           </aside>
         </Slide>
       </article>
-      <section className="max-w-3xl lg:py-10 pt-0">
-        <h3 className="lg:text-4xl text-3xl font-semibold tracking-tight mb-8">
-          Support
-        </h3>
-        <Buymeacoffee />
-      </section>
     </main>
   );
 }
