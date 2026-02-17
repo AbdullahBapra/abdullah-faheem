@@ -26,7 +26,4 @@ export const table = defineType({
       caption: "caption",
     },
   },
-  components: {
-    preview: TableWidget,
-  },
 });

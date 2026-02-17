@@ -26,7 +26,4 @@ export const youtube = defineType({
       url: "url",
     },
   },
-  components: {
-    preview: YoutubeWidget,
-  },
 });

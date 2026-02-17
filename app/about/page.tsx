@@ -11,12 +11,12 @@ import { sanityFetch } from "@/lib/sanity.client";
 import RefLink from "../components/shared/RefLink";
 
 export const metadata: Metadata = {
-  title: "About | Victor Eke",
-  metadataBase: new URL("https://victoreke.com/about"),
+  title: "About | Abdullah Faheem",
+  metadataBase: new URL("https://abdullah-faheem.vercel.app/about"),
   description:
     "Learn more about my skills, experience and technical background",
   openGraph: {
-    title: "About | Victor Eke",
+    title: "About | Abdullah Faheem",
     url: "https://victoreke.com/about",
     description:
       "Learn more about my skills, experience and technical background",
