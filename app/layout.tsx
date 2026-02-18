@@ -59,24 +59,41 @@ export default function RootLayout({
           {children}
           <Footer />
         </Providers>
-        <Script id="person-jsonld" type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Abdullah Faheem",
-            url: "https://abdullah-faheem.vercel.app",
-            sameAs: [
-              "https://github.com/AbdullahBapra",
-              "https://www.linkedin.com/in/abdullah-faheem-724196315/",
-              "https://twitter.com/AbdullahFa69598",
-            ],
-            jobTitle: "Full Stack Developer & AI Engineer",
-            image: options.ogImage,
-            description: options.description,
-          })}
-        </Script>
+        <Script
+          id="global-jsonld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  "@id": "https://abdullah-faheem.vercel.app/#person",
+                  name: "Abdullah Faheem",
+                  url: "https://abdullah-faheem.vercel.app",
+                  sameAs: [
+                    "https://github.com/AbdullahBapra",
+                    "https://www.linkedin.com/in/abdullah-faheem-724196315/",
+                    "https://twitter.com/AbdullahFa69598"
+                  ],
+                  jobTitle: "Full Stack Developer & AI Engineer",
+                  image: options.ogImage,
+                  description: options.description
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://abdullah-faheem.vercel.app/#website",
+                  url: "https://abdullah-faheem.vercel.app",
+                  name: "Abdullah Faheem Portfolio",
+                  publisher: {
+                    "@id": "https://abdullah-faheem.vercel.app/#person"
+                  }
+                }
+              ]
+            }),
+          }}
+        />
       </body>
-      
     </html>
   );
 }

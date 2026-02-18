@@ -15,6 +15,8 @@ import { urlFor } from "@/lib/sanity.image";
 import { sanityFetch } from "@/lib/sanity.client";
 import { readTime } from "@/app/utils/readTime";
 import PageHeading from "@/app/components/shared/PageHeading";
+import Script from "next/script";
+
 
 type Props = {
   params: {
@@ -33,6 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     tags: ["Post"],
     qParams: { slug },
   });
+  
 
   if (!post) {
     notFound();
@@ -85,11 +88,44 @@ export default async function Post({ params }: Props) {
 
   const words = toPlainText(post.body);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    image:
+      urlFor(post.coverImage?.image).width(1200).height(630).url() ||
+      fallbackImage,
+    author: {
+      "@type": "Person",
+      name: post.author.name,
+      url: "https://abdullah-faheem.vercel.app",
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Abdullah Faheem",
+    },
+    datePublished: post._createdAt,
+    dateModified: post._updatedAt || post._createdAt,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://abdullah-faheem.vercel.app/blog/${post.slug}`,
+    },
+  };
+
   if (!post) {
     notFound();
   }
 
   return (
+    <> 
+    <Script
+        id="blog-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema),
+        }}
+      />
     <main className="max-w-7xl mx-auto md:px-16 px-6">
       <header>
         <Slide className="relative flex items-center gap-x-2 border-b dark:border-zinc-800 border-zinc-200 pb-8">
@@ -209,5 +245,6 @@ export default async function Post({ params }: Props) {
         </Slide>
       </article>
     </main>
+    </>
   );
 }

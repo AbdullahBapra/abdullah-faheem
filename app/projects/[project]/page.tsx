@@ -8,6 +8,8 @@ import { Slide } from "../../animation/Slide";
 import { urlFor } from "@/lib/sanity.image";
 import { sanityFetch } from "@/lib/sanity.client";
 import { BiLinkExternal, BiLogoGithub } from "react-icons/bi";
+import Script from "next/script";
+
 
 type Props = {
   params: {
@@ -49,8 +51,32 @@ export default async function Project({ params }: Props) {
     tags: ["project"],
     qParams: { slug },
   });
+  const projectSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: project.name,
+    description: project.tagline,
+    applicationCategory: "WebApplication",
+    operatingSystem: "Web Browser",
+    image: project.coverImage
+      ? urlFor(project.coverImage.image).width(1200).height(630).url()
+      : fallbackImage,
+    url: `https://abdullah-faheem.vercel.app/projects/${project.slug}`,
+    author: {
+      "@type": "Person",
+      name: "Abdullah Faheem",
+    },
+  };
 
   return (
+    <> 
+     <Script
+        id="project-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(projectSchema),
+        }}
+      />
     <main className="max-w-6xl mx-auto lg:px-16 px-8">
       <Slide>
         <div className="max-w-3xl mx-auto">
@@ -111,5 +137,6 @@ export default async function Project({ params }: Props) {
         </div>
       </Slide>
     </main>
+    </>
   );
 }
