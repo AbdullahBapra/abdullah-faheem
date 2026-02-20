@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     query: singlePostQuery,
     tags: ["Post"],
     qParams: { slug },
+    cache: "no-store",
   });
   
 
