@@ -84,7 +84,6 @@ export default async function Post({ params }: Props) {
     query: singlePostQuery,
     tags: ["Post"],
     qParams: { slug },
-    cache: "no-store",
   });
 
   const words = toPlainText(post.body);
