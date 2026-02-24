@@ -14,7 +14,7 @@ const fallbackImage: string =
   "https://res.cloudinary.com/victoreke/image/upload/v1692608339/victoreke/blog.png";
 
  
-export const revalidate = 10; // seconds
+export const revalidate = 10; 
 
 export default async function Posts() {
   // Fetch posts from Sanity
