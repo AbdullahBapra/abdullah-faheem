@@ -3,5 +3,12 @@ Disallow: /api/
 Disallow: /admin/
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+
 Sitemap: https://abdullah-faheem.vercel.app/sitemap.xml
 Host: https://abdullah-faheem.vercel.app
