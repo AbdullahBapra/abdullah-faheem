@@ -33,7 +33,7 @@ export async function GET() {
     return new Response(sitemap, {
       headers: {
         "Content-Type": "application/xml",
-        "Cache-Control": "no-cache, no-store, must-revalidate", // ✅ Forces Google to fetch fresh content
+        "Cache-Control": "no-cache, no-store, must-revalidate", 
       },
     });
 

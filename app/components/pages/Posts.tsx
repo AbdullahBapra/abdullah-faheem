@@ -15,7 +15,6 @@ const fallbackImage: string =
 
  
 
-  export const revalidate = 10; 
 
 export default async function Posts() {
   // Fetch posts from Sanity
