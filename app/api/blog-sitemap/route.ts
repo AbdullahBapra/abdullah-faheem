@@ -1,11 +1,13 @@
 import { postsQuery } from "@/lib/sanity.query";
 import { sanityFetch } from "@/lib/sanity.client";
+import { PostType } from "@/types";
+
 
 export async function GET() {
   const posts = await sanityFetch({
     query: postsQuery,
     tags: ["Post"],
-  });
+  }) as PostType[];
 
   const filteredPosts = posts.filter(post => post.isPublished === true);
 
