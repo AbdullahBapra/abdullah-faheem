@@ -10,5 +10,7 @@ User-agent: OAI-SearchBot
 Allow: /
 
 
+Sitemap: https://abdullah-faheem.vercel.app/blog-sitemap.xml
 Sitemap: https://abdullah-faheem.vercel.app/sitemap.xml
 Host: https://abdullah-faheem.vercel.app
+
