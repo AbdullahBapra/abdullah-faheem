@@ -13,6 +13,8 @@ import { toPlainText } from "@portabletext/react";
 const fallbackImage: string =
   "https://res.cloudinary.com/victoreke/image/upload/v1692608339/victoreke/blog.png";
 
+
+export const revalidate = 10; 
  
 
 
