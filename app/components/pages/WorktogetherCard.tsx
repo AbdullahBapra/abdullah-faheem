@@ -38,18 +38,18 @@ export default function WorktogetherCard() {
                     <div className="flex-1">
                         <h4 className="text-lg font-semibold text-zinc-500 dark:text-zinc-400 mb-1 flex items-center gap-2">
                             <span className="inline-block w-2 h-2 bg-[#35a9ec] rounded-full animate-sparkle"></span>
-                            Let's work together
+                             Let&apos;s work together
                         </h4>
                         <h2
                             id="work-together-heading"
                             className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-3"
                         >
                             Got a project that needs AI? <br />
-                            Tell me what you're building.
+                            Tell me what you&apos;re building.
                         </h2>
                         <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
                             I take on 2–3 projects at a time, slots are currently open. No agencies, no middlemen.
-                            If it's a good fit, we move fast. I specialize in full-stack web apps and AI-powered solutions.
+                            If it&apos;s a good fit, we move fast. I specialize in full-stack web apps and AI-powered solutions.
                         </p>
                     </div>
 
