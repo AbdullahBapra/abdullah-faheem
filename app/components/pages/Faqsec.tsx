@@ -76,7 +76,7 @@ function FaqRow({ item, isOpen, onToggle, headingId, panelId }: FaqRowProps) {
           aria-expanded={isOpen}
           aria-controls={panelId}
           onClick={onToggle}
-          className="w-full cursor-pointer dark:bg-primary-bg bg-zinc-100 border dark:border-zinc-800 border-zinc-200 rounded-md px-4 py-4 text-left focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full cursor-pointer dark:bg-primary-bg bg-zinc-100 border dark:border-zinc-800 border-zinc-200 rounded-md px-4 py-4 text-left focus:outline-none focus:ring-2 focus:ring-[#35a9ec]"
         >
           <div className="flex justify-between items-center gap-4">
             

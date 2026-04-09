@@ -1,4 +1,4 @@
-import React from "react";
+import Image from "next/image";
 
 export default function Skills() {
   const skillsweb = [
@@ -46,11 +46,15 @@ export default function Skills() {
                          border border-white/20 dark:border-white/10
                          duration-300 hover:bg-white/20 dark:hover:bg-white/10
                          hover:shadow-lg"
+                         style={{ minWidth: 80, minHeight: 80 }}
             >
-              <img
-                className="h-12 w-12 object-contain grayscale hover:grayscale-0 transition duration-300"
+              <Image
+                className="object-contain grayscale hover:grayscale-0 transition duration-300"
                 src={skill.src}
                 alt={skill.alt}
+                loading="lazy"
+                 width={48}      
+                height={48} 
               />
             </div>
           ))}
