@@ -36,6 +36,8 @@ export default function Navbar() {
               height={135}
               alt="logo"
               className="dark:invert-0 invert"
+              quality={75}
+              priority={true}
             />
 
           </Link>

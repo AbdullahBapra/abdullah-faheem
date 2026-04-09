@@ -60,7 +60,7 @@ export default function MobileMenu() {
       >
         <div className="flex items-center justify-between mt-6 px-8">
           <Link href="/" onClick={onToggleNav}>
-            <Image src={Logo} width={135} height={135} alt="logo" className="dark:invert-0 invert " />
+            <Image src={Logo} width={135} height={135} alt="logo" className="dark:invert-0 invert " priority={true} quality={75}/>
           </Link>
 
           <button
