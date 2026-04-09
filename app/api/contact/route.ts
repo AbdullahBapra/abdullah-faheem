@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
 
 
 
-    // HTML email template
+   
 const htmlMessage = `
 <div>
   <div>
