@@ -37,7 +37,7 @@ export default async function Home() {
                 aria-label="Contact me to build your project"
                 className="px-4 py-2 rounded dark:bg-[#35a9ec] dark:border-zinc-800 bg-zinc-100 border dark:text-white border-zinc-200 dark:hover:bg-[#2b90caf3]"
               >
-                Let's build something →
+                Let&apos;s build something →
               </Link>
               <Link
                 href={"/projects"}
