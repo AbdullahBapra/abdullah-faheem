@@ -15,9 +15,9 @@ const inter = Inter({
 });
 
 const options = {
-  title: "Abdullah Faheem | Full Stack Developer | Agentic Ai | AI powered Web & Apps",
+  title: "Abdullah Faheem — Full-Stack & AI Developer",
   description:
-    "Abdullah Faheem is an AI-Powered Web & App Builder, Agentic AI Developer, and MERN Stack Engineer focused on building intelligent automation systems, AI-driven SaaS platforms, and scalable full-stack applications.",
+    "I build AI-powered SaaS, MERN stack apps, and agentic automation systems. Available for freelance projects and full-time roles.",
   url: "https://abdullah-faheem.vercel.app/",
   ogImage:
     "https://abdullah-faheem.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fsnc9ollo%2Fproduction%2Fb93dad570f85582ea2266968f70f093e541e3ff5-940x911.jpg&w=640&q=100",

@@ -7,6 +7,10 @@ import { Slide } from "./animation/Slide";
 import { sanityFetch } from "@/lib/sanity.client";
 import ContributionGraph from "./components/pages/GithubCalendarComponent";
 import Skills from "./components/pages/Skills";
+import Link from "next/link";
+import Faqsec from "./components/pages/Faqsec";
+import WorktogetherCard from "./components/pages/WorktogetherCard";
+
 
 export default async function Home() {
   const profile: ProfileType = await sanityFetch({
@@ -26,6 +30,24 @@ export default async function Home() {
               {profile?.shortBio ?? "Short bio description"}
             </p>
           </Slide>
+          <Slide>
+            <div className="flex gap-4 mt-4">
+              <Link
+                href={"/contact"}
+                aria-label="Contact me to build your project"
+                className="px-4 py-2 rounded dark:bg-[#35a9ec] dark:border-zinc-800 bg-zinc-100 border dark:text-white border-zinc-200 dark:hover:bg-[#2b90caf3]"
+              >
+                Let's build something →
+              </Link>
+              <Link
+                href={"/projects"}
+                aria-label="View my web development and AI projects"
+                className="dark:bg-primary-bg bg-zinc-100 border dark:border-zinc-800 border-zinc-200 rounded-md px-4 py-2"
+              >
+                View my projects
+              </Link>
+            </div>
+          </Slide>
           <Slide delay={0.1}>
             <Social type="social" />
           </Slide>
@@ -34,8 +56,16 @@ export default async function Home() {
           <HeroSvg />
         </Slide>
       </section>
-      <Skills/>
+      <Slide delay={0.16}>
+        <Skills />
+      </Slide>
       <Job />
+      <Slide delay={0.16}>
+        <Faqsec />
+      </Slide>
+      <Slide delay={0.16}>
+        <WorktogetherCard />
+      </Slide>
     </main>
   );
 }

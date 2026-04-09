@@ -37,6 +37,9 @@ module.exports = {
       backgroundPosition: {
         zero: "0 0",
       },
+       animation: {
+        sparkle: 'sparkle 1s ease-in-out infinite',
+      },
     },
   },
   plugins: [],

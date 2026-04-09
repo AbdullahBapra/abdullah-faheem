@@ -79,7 +79,9 @@ export default function Skills() {
       <p className="opacity-50 mt-4 text-sm max-w-lg text-zinc-700 dark:text-zinc-400">
         Tools that I have used in the completion of successful projects.
       </p>
-
+      <p className="sr-only">
+        I have experience working with HTML, CSS, JavaScript, React, Next.js, Node.js, MongoDB, Tailwind CSS, Python, FastAPI, LangChain, OpenAI, and Retrieval-Augmented Generation (RAG).
+      </p>
       <SkillRow skills={skillsweb} title="Web & App Development" />
       <SkillRow skills={skillsai} title="Agentic AI" />
     </section>
