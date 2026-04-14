@@ -1,34 +1,35 @@
 "use client";
 import React, { useState, useId } from "react";
+import { toast } from "react-toastify";
 
 interface FormSections {
   buildSomething: { projectName: string; description: string; techstack: string };
-  collaborate:    { repoName: string; pitch: string; projectlink: string };
-  hireMe:         { company: string; techRole: string; jobposting: string };
-  contact:        { name: string; email: string; additionalInfo: string };
+  collaborate: { repoName: string; pitch: string; projectlink: string };
+  hireMe: { company: string; techRole: string; jobposting: string };
+  contact: { name: string; email: string; additionalInfo: string };
 }
 
 type Section = keyof FormSections;
 
 interface Article {
-  heading:    string;
+  heading: string;
   subheading: string;
 }
 
 interface ChipProps {
-  label:    string;
+  label: string;
   selected: boolean;
   onToggle: () => void;
 }
 
 interface OptionGroupProps {
-  legend:   string;
+  legend: string;
   children: React.ReactNode;
 }
 
 interface ContactStepProps {
-  formId:       string;
-  formData:     FormSections;
+  formId: string;
+  formData: FormSections;
   handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, section: Section) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
 }
@@ -61,11 +62,10 @@ function Chip({ label, selected, onToggle }: ChipProps) {
           onToggle();
         }
       }}
-      className={`cursor-pointer border rounded-md p-2 transition-all focus:outline-none focus:ring-2 focus:ring-[#3ab5fe] ${
-        selected
+      className={`cursor-pointer border rounded-md p-2 transition-all focus:outline-none focus:ring-2 focus:ring-[#3ab5fe] ${selected
           ? "bg-[#3ab5fe] text-white border-[#3ab5fe]"
           : "bg-white text-black border-gray-300 hover:bg-gray-100"
-      }`}
+        }`}
     >
       {label}
     </button>
@@ -135,35 +135,35 @@ export default function MultiArticleForm() {
 
   const articles: Article[] = [
     { heading: "I need to build something", subheading: "Startup, product, or web app" },
-    { heading: "Let's collaborate",          subheading: "Open source, hackathon, or freelance" },
-    { heading: "I want to hire you",         subheading: "Full-time, part-time, or contract role" },
+    { heading: "Let's collaborate", subheading: "Open source, hackathon, or freelance" },
+    { heading: "I want to hire you", subheading: "Full-time, part-time, or contract role" },
   ];
 
-  const needsOptions:       string[] = ["Full-Stack Dev", "AI Integration", "MVP Build", "UI/Frontend", "API / Backend", "Consulting"];
-  const budgetOptions:      string[] = ["Under $500", "$500 – $2k", "$2k – $5k", "$5k+", "Not sure yet"];
-  const timelineOptions:    string[] = ["ASAP", "1–4 weeks", "1–3 months", "No rush"];
-  const roleOptions:        string[] = ["Developer", "Designer", "Product", "Founder", "Researcher"];
-  const techOptions:        string[] = ["React / Next.js", "Python", "Node.js", "LangChain", "LLM APIs", "Other"];
-  const roleTypeOptions:    string[] = ["Full-time", "Part-time", "Contract", "Other"];
+  const needsOptions: string[] = ["Full-Stack Dev", "AI Integration", "MVP Build", "UI/Frontend", "API / Backend", "Consulting"];
+  const budgetOptions: string[] = ["Under $500", "$500 – $2k", "$2k – $5k", "$5k+", "Not sure yet"];
+  const timelineOptions: string[] = ["ASAP", "1–4 weeks", "1–3 months", "No rush"];
+  const roleOptions: string[] = ["Developer", "Designer", "Product", "Founder", "Researcher"];
+  const techOptions: string[] = ["React / Next.js", "Python", "Node.js", "LangChain", "LLM APIs", "Other"];
+  const roleTypeOptions: string[] = ["Full-time", "Part-time", "Contract", "Other"];
   const jobLocationOptions: string[] = ["Fully remote", "Hybrid", "On-site"];
 
-  const [activeIndex,      setActiveIndex]      = useState<number | null>(null);
-  const [showForm,         setShowForm]         = useState<boolean>(false);
-  const [formStep,         setFormStep]         = useState<number>(1);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [showForm, setShowForm] = useState<boolean>(false);
+  const [formStep, setFormStep] = useState<number>(1);
 
-  const [selectedNeeds,    setSelectedNeeds]    = useState<string[]>([]);
-  const [selectedBudget,   setSelectedBudget]   = useState<string>("");
+  const [selectedNeeds, setSelectedNeeds] = useState<string[]>([]);
+  const [selectedBudget, setSelectedBudget] = useState<string>("");
   const [selectedTimeline, setSelectedTimeline] = useState<string>("");
-  const [userRole,         setUserRole]         = useState<string>("");
-  const [selectedTech,     setSelectedTech]     = useState<string[]>([]);
+  const [userRole, setUserRole] = useState<string>("");
+  const [selectedTech, setSelectedTech] = useState<string[]>([]);
   const [selectedRoleType, setSelectedRoleType] = useState<string>("");
-  const [jobLocation,      setJobLocation]      = useState<string>("");
+  const [jobLocation, setJobLocation] = useState<string>("");
 
   const [formData, setFormData] = useState<FormSections>({
     buildSomething: { projectName: "", description: "", techstack: "" },
-    collaborate:    { repoName: "", pitch: "", projectlink: "" },
-    hireMe:         { company: "", techRole: "", jobposting: "" },
-    contact:        { name: "", email: "", additionalInfo: "" },
+    collaborate: { repoName: "", pitch: "", projectlink: "" },
+    hireMe: { company: "", techRole: "", jobposting: "" },
+    contact: { name: "", email: "", additionalInfo: "" },
   });
 
   // ── Helpers ───────────────────────────────────────────────────────────────
@@ -204,9 +204,9 @@ export default function MultiArticleForm() {
   const resetForm = (): void => {
     setFormData({
       buildSomething: { projectName: "", description: "", techstack: "" },
-      collaborate:    { repoName: "", pitch: "", projectlink: "" },
-      hireMe:         { company: "", techRole: "", jobposting: "" },
-      contact:        { name: "", email: "", additionalInfo: "" },
+      collaborate: { repoName: "", pitch: "", projectlink: "" },
+      hireMe: { company: "", techRole: "", jobposting: "" },
+      contact: { name: "", email: "", additionalInfo: "" },
     });
     setSelectedNeeds([]);
     setSelectedBudget("");
@@ -227,39 +227,39 @@ export default function MultiArticleForm() {
       ...formData,
       buildSomething: {
         ...formData.buildSomething,
-        needs:    selectedNeeds,
-        budget:   selectedBudget,
+        needs: selectedNeeds,
+        budget: selectedBudget,
         timeline: selectedTimeline,
       },
       collaborate: {
         ...formData.collaborate,
-        role:      userRole,
+        role: userRole,
         techStack: selectedTech,
       },
       hireMe: {
         ...formData.hireMe,
-        roleType:    selectedRoleType,
+        roleType: selectedRoleType,
         jobLocation,
       },
     };
 
     try {
       const response = await fetch("/api/contact", {
-        method:  "POST",
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify(finalData),
+        body: JSON.stringify(finalData),
       });
       const data = await response.json();
 
       if (data.success) {
-        alert("Form submitted successfully ✅");
+        toast.success("Form submitted successfully ✅");
         resetForm();
       } else {
-        alert("Something went wrong ❌");
+        toast.error("Something went wrong ❌");
       }
     } catch (error) {
       console.error(error);
-      alert("Error submitting form ❌");
+      toast.error("Something went wrong ❌");
     }
   };
 
@@ -300,9 +300,8 @@ export default function MultiArticleForm() {
             <div
               key={dot}
               aria-hidden="true"
-              className={`rounded-full transition-all duration-300 ${
-                isActive ? "w-8 h-2 bg-[#3ab5fe]" : "w-2 h-2 bg-gray-300"
-              }`}
+              className={`rounded-full transition-all duration-300 ${isActive ? "w-8 h-2 bg-[#3ab5fe]" : "w-2 h-2 bg-gray-300"
+                }`}
             />
           );
         })}
@@ -330,11 +329,10 @@ export default function MultiArticleForm() {
                       setActiveIndex(index);
                     }
                   }}
-                  className={`p-6 rounded-lg border cursor-pointer flex-1 min-w-[250px] focus:outline-none focus:ring-2 focus:ring-[#3ab5fe] ${
-                    isActive
+                  className={`p-6 rounded-lg border cursor-pointer flex-1 min-w-[250px] focus:outline-none focus:ring-2 focus:ring-[#3ab5fe] ${isActive
                       ? "bg-blue-500 text-white border-blue-500 dark:bg-[#3ab5fe] dark:border-blue-500"
                       : "bg-secondary-bg text-black border-zinc-200 dark:bg-primary-bg dark:text-white dark:border-zinc-800"
-                  }`}
+                    }`}
                 >
                   <h2 className="text-4xl font-semibold">{article.heading}</h2>
                   <h3 className="text-xl font-medium text-gray-600">{article.subheading}</h3>
