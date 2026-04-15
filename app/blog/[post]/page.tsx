@@ -26,6 +26,8 @@ type Props = {
 
 const fallbackImage: string =
   "https://res.cloudinary.com/victoreke/image/upload/v1692636087/victoreke/blog.png";
+
+export const revalidate = 10; 
  
 
 // Dynamic metadata for SEO
